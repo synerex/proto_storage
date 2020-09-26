@@ -27,21 +27,20 @@ message Storage {
     DataType dtype = 3;
     uint32 datasize = 4;
     uint64 storageSize = 5;
-    RecordQuery rquery = 6;
 }
 
 // Data Store message
 message Record {
     string bucketName = 1;   // if DATA_FILE , folder name
     string objectName = 2;    // if DATA_FILE , filename. / If KV Key
-    string option = 3;  // option used for each storage type.(Not yet used)
+    bytes option = 3;  // option used for each storage type.(Not yet used)
     bytes record = 4;  // main object
 }
 
 message RecordQuery {
     string bucketName = 1;   // if DATA_FILE , folder name
-    string objectName = 2;    // if DATA_FILE , filename. / If KV Key
-    string option = 3;  // option used for each storage type.(Not yet used)
+    repeated string objectNames = 2;    // if DATA_FILE , filename. / If KV Key
+    bytes option = 3;  // option used for each storage type.(Not yet used)
 }
 
 message Tag {
@@ -59,6 +58,3 @@ message ObjectTag {  // only for ObjectStorage
     string objectName = 2;
     repeated Tag tags = 3;
 }
-
-
-
