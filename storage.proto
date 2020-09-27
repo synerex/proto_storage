@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package proto.storage;
 
-option go_package="github.com/synerex/proto_storage";
+option go_package="github.com/KentoWashida/proto_storage";
 
-import "google/protobuf/timestamp.proto";
+//import "google/protobuf/timestamp.proto";
 
 enum StorageType {
      TYPE_ANY = 0;
@@ -39,7 +39,7 @@ message Record {
 
 message RecordQuery {
     string bucketName = 1;   // if DATA_FILE , folder name
-    string objectName = 2;    // if DATA_FILE , filename. / If KV Key
+    repeated string objectNames = 2;    // if DATA_FILE , filename. / If KV Key
     bytes option = 3;  // option used for each storage type.(Not yet used)
 }
 
@@ -58,6 +58,3 @@ message ObjectTag {  // only for ObjectStorage
     string objectName = 2;
     repeated Tag tags = 3;
 }
-
-
-
