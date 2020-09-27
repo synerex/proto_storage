@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package proto.storage;
 
-option go_package="github.com/KentoWashida/proto_storage";
+option go_package="github.com/synerex/proto_storage";
 
 //import "google/protobuf/timestamp.proto";
 
